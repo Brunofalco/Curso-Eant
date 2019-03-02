@@ -57,18 +57,54 @@
 		<script>
 		/* 1) Seleccionar todas las habitaciones */
 
+		const habitaciones = document.querySelectorAll(".habitacion");
+
 		/* 2) Seleccionar el select */
+
+		const menu = document.querySelector("select[name=habitacion]");
 
 		/* 3) Asignar la funcion mostrarOpcion al evento correspondiente */
 
+		menu.onchange = mostrarOpcion;
+
 		/* 4) Pensar una solucion logica para esconder todas las habitaciones cada vez que sea necesario */
+		/*for(contador; CONDICION; SECUENCIA) son las secuencias que estan descriptas abajo*/
+		 
+		 /*para saber cuantos elementos existen es con el código habitaciones.legnth*/
+
+		 esconderTodas()
+
+		 function esconderTodas(){
+		 	
+			for(let i = 0; i < habitaciones.length; i++){
+		 		console.log("se escondio la vuelta: "+ i)
+		 		habitaciones[i].classList.add("esconder")
+		 	}
+		 
+		 }
 
 		function mostrarOpcion(){
-			/* 5) Obtener la opción seleccionada */
 
+			esconderTodas();
+
+			/* 5) Obtener la opción seleccionada */
+			const elegida =  menu.value; //<--"modesta" , "elegante", "lujosa","0"//
+			
+			if (elegida == "0") return
+						
+
+			
 			/* 6) Seleccionar la habitación correspondiente usando un selector dinámico */
 
+			const habitacion = document.querySelector(".habitacion-" + elegida);
+
+			console.log ("la elegida es:")
+			console.log (habitacion)
+
+
 			/* 7) Asignar la clase correspondiente */
+
+			habitacion.classList.remove("esconder")
 		}
 		</script>
 	</body>
