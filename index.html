@@ -97,10 +97,10 @@
       //ajax.open(TIPO, RECURSO);//
       ajax.open("GET", "noticias.json");
       ajax.onload = function(){
-        if(ajax.status == 200){
+        if(ajax.status == 200){   
             let noticias = JSON.parse(ajax.response)
             noticias.forEach(function(notica){
-              let plantilla = document.querySelector(.articulo).cloneNode(true)
+              let plantilla = document.querySelector(."articulo").cloneNode(true)
               plantilla.querySelector("h3").innerText = noticia.titulo
               pantilla.querySelector(".small a").innerText = noticia.autor
               plantilla.querySelector("p:last-child").innerText = noticia.detalle
