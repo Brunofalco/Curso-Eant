@@ -72,7 +72,7 @@
       <main class="container-fluid">
 
         <!-- Notcia N1 -->
-        <article class="row py-3 mx-0 border-bottom">
+        <article class="row py-3 mx-0 border-bottom articulo">
           <div class="col-12 col-md-6 col-lg-4">
             <img src="https://via.placeholder.com/480x320" class="img-fluid">
           </div>
@@ -98,8 +98,17 @@
       ajax.open("GET", "noticias.json");
       ajax.onload = function(){
         if(ajax.status == 200){
-            alert("Mirá en la consola..")
-            console.log (ajax.response)
+            let noticias = JSON.parse(ajax.response)
+            noticias.forEach(function(notica){
+              let plantilla = document.querySelector(.articulo).cloneNode(true)
+              plantilla.querySelector("h3").innerText = noticia.titulo
+              pantilla.querySelector(".small a").innerText = noticia.autor
+              plantilla.querySelector("p:last-child").innerText = noticia.detalle
+              plantilla.querySelector("img").src = "img/" + noticia.imagen
+
+              document.querySelector("main").appendChlid( plantilla) 
+
+            })
         }
 
       }; 
