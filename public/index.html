@@ -95,15 +95,22 @@
     <script>
       const ajax = new XMLHttpRequest();
       //ajax.open(TIPO, RECURSO);//
-      ajax.open("GET", "noticias.json");
+      ajax.open("GET", "/noticias");
       ajax.onload = function(){
         if(ajax.status == 200){   
+          
             let noticias = JSON.parse(ajax.response)
+           
+            let imagenes = ["sorteo-libertadores.jgp"."tickets-rusia-mundial.jpg"."firpo.jpg"]
+           
             noticias.forEach(function(notica){
               let plantilla = document.querySelector(."articulo").cloneNode(true)
               plantilla.querySelector("h3").innerText = noticia.titulo
               pantilla.querySelector(".small a").innerText = noticia.autor
               plantilla.querySelector("p:last-child").innerText = noticia.detalle
+             
+             let imagen = imagenes [math.floor(math.random() * imagenes.lenght)]
+
               plantilla.querySelector("img").src = "img/" + noticia.imagen
 
               document.querySelector("main").appendChlid( plantilla) 
